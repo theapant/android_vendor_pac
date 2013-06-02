@@ -15,4 +15,5 @@ $(call inherit-product, device/sony/nypon/cm.mk)
 
 PRODUCT_NAME := pac_nypon
 
+
 endif
