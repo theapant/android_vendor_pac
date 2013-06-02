@@ -1,3 +1,9 @@
+ifeq (pac_nypon,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/pac_nypon.mk
+endif
+ifeq (pac_lotus,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/pac_lotus.mk
+endif
 ifeq (pac_anzu,$(TARGET_PRODUCT))
     PRODUCT_MAKEFILES += $(LOCAL_DIR)/pac_anzu.mk
 endif
