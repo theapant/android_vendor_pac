@@ -1,6 +1,15 @@
 ifeq (pac_nypon,$(TARGET_PRODUCT))
     PRODUCT_MAKEFILES += $(LOCAL_DIR)/pac_nypon.mk
 endif
+<<<<<<< HEAD
+=======
+ifeq (pac_pepper,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/pac_pepper.mk
+endif
+ifeq (pac_kumquat,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/pac_kumquat.mk
+endif
+>>>>>>> 807b07130332a470c002acd30ba5a42639679c58
 ifeq (pac_anzu,$(TARGET_PRODUCT))
     PRODUCT_MAKEFILES += $(LOCAL_DIR)/pac_anzu.mk
 endif
