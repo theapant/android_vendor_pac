@@ -5,29 +5,18 @@ ifeq (pac_gio,$(TARGET_PRODUCT))
 OVERLAY_TARGET := pa_mdpi
 
 # AOKP device overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/aokp/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/aokp/device/cooper
 
 # PAC device overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/pac/mdpi
+PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/pac/common/mdpi
+$(shell cp -f vendor/pac/overlay/pac/samsung/mdpi/frameworks/base/core/res/assets/images/android-logo-mask.png frameworks/base/core/res/assets/images/android-logo-mask.png)
 
-# PAC boot logo
-PRODUCT_COPY_FILES += \
-    vendor/pac/prebuilt/common/bootlogo/pac_logo_320x480.rle:root/GIO.rle
-
-# Copy bootanimation
-PRODUCT_COPY_FILES += \
-    vendor/pac/prebuilt/mdpi/bootanimation.zip:system/media/bootanimation.zip
-
-# include PAC common configuration
+# include ParanoidAndroid common configuration
 include vendor/pac/config/pac_common.mk
 
 # Inherit CM device configuration
 $(call inherit-product, device/samsung/gio/cm.mk)
 
 PRODUCT_NAME := pac_gio
-
-# Update local_manifest.xml
-GET_PROJECT_RMS := $(shell vendor/pac/tools/removeprojects.py $(PRODUCT_NAME))
-GET_PROJECT_ADDS := $(shell vendor/pac/tools/addprojects.py $(PRODUCT_NAME))
 
 endif

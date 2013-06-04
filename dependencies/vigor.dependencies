@@ -1,6 +1,6 @@
 [
     {
-        "account":	"Chad0989",
+        "account":    "Chad0989",
         "repository":	"device_htc_vigor",
         "target_path":	"device/htc/vigor",
         "revision":	"cm-10.1"
