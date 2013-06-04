@@ -7,28 +7,23 @@ OVERLAY_TARGET := pa_hdpi
 # AOKP device overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/aokp/device/haida
 
+# Common device overlay
+PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/common/hdpi
+
 # PAC device overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/pac/hdpi_480x854
-$(shell cp -f vendor/pac/prebuilt/common/bootanimation_framework/android-logo-mask_sony-hdpi.png frameworks/base/core/res/assets/images/android-logo-mask.png)
+PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/pac/common/hdpi_480x854
+$(shell cp -f vendor/pac/overlay/pac/sony/hdpi/frameworks/base/core/res/assets/images/android-logo-mask.png frameworks/base/core/res/assets/images/android-logo-mask.png)
 
 # PAC boot logo
 PRODUCT_COPY_FILES += \
-    vendor/pac/prebuilt/common/bootlogo/sony-pac_480x854.rle:root/initlogo.rle
+    vendor/pac/prebuilt/common/bootlogo/sony-pac_480x854.rle:root/logo.rle
 
-# Copy bootanimation
-PRODUCT_COPY_FILES += \
-    vendor/pac/prebuilt/hdpi/bootanimation.zip:system/media/bootanimation.zip
-
-# include PAC common configuration
+# include ParanoidAndroid common configuration
 include vendor/pac/config/pac_common.mk
 
 # Inherit CM device configuration
 $(call inherit-product, device/semc/haida/cm.mk)
 
 PRODUCT_NAME := pac_haida
-
-# Update local_manifest.xml
-GET_PROJECT_RMS := $(shell vendor/pac/tools/removeprojects.py $(PRODUCT_NAME))
-GET_PROJECT_ADDS := $(shell vendor/pac/tools/addprojects.py $(PRODUCT_NAME))
 
 endif

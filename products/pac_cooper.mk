@@ -1,5 +1,5 @@
 # Check for target product
-ifeq (pac_gio,$(TARGET_PRODUCT))
+ifeq (pac_cooper,$(TARGET_PRODUCT))
 
 # OVERLAY_TARGET adds overlay asset source
 OVERLAY_TARGET := pa_mdpi
@@ -15,8 +15,8 @@ $(shell cp -f vendor/pac/overlay/pac/samsung/mdpi/frameworks/base/core/res/asset
 include vendor/pac/config/pac_common.mk
 
 # Inherit CM device configuration
-$(call inherit-product, device/samsung/gio/cm.mk)
+$(call inherit-product, device/samsung/cooper/cm.mk)
 
-PRODUCT_NAME := pac_gio
+PRODUCT_NAME := pac_cooper
 
 endif

@@ -1,5 +1,5 @@
 # Check for target product
-ifeq (pac_smultron,$(TARGET_PRODUCT))
+ifeq (pac_lotus,$(TARGET_PRODUCT))
 
 # OVERLAY_TARGET adds overlay asset source
 OVERLAY_TARGET := pa_mdpi
@@ -19,8 +19,8 @@ PRODUCT_COPY_FILES += \
 include vendor/pac/config/pac_common.mk
 
 # Inherit CM device configuration
-$(call inherit-product, device/semc/smultron/cm.mk)
+$(call inherit-product, device/sony/lotus/cm.mk)
 
-PRODUCT_NAME := pac_smultron
+PRODUCT_NAME := pac_lotus
 
 endif
