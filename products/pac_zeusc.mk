@@ -1,11 +1,11 @@
 # Check for target product
-ifeq (pac_anzu,$(TARGET_PRODUCT))
+ifeq (pac_zeusc,$(TARGET_PRODUCT))
 
 # OVERLAY_TARGET adds overlay asset source
 OVERLAY_TARGET := pa_hdpi
 
 # AOKP device overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/aokp/device/anzu
+PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/aokp/device/zeusc
 
 # Common device overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/common/hdpi
@@ -13,6 +13,9 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/common/hdpi
 # PAC device overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/pac/overlay/pac/common/hdpi_480x854
 $(shell cp -f vendor/pac/overlay/pac/sony/hdpi/frameworks/base/core/res/assets/images/android-logo-mask.png frameworks/base/core/res/assets/images/android-logo-mask.png)
+
+# PA settings overlay
+$(shell cp -f vendor/pac/prebuilt/pa_hdpi.conf vendor/pa/prebuilt/pa_hdpi.conf)
 
 # PAC boot logo
 PRODUCT_COPY_FILES += \
@@ -22,8 +25,8 @@ PRODUCT_COPY_FILES += \
 include vendor/pac/config/pac_common.mk
 
 # Inherit CM device configuration
-$(call inherit-product, device/semc/anzu/cm.mk)
+$(call inherit-product, device/semc/zeusc/cm.mk)
 
-PRODUCT_NAME := pac_anzu
+PRODUCT_NAME := pac_zeusc
 
 endif
